@@ -8,7 +8,8 @@ function  DashboardItem( {city} ){
   return (
     <div className="dashboard-item">
         <button className="dashboard-item-btn" onClick={onDashboardClicked}>
-            {city.name} {city.country} 
+            {city.name}, {city.state}, {city.country} | Temp: {city.currentTemperature} 
+              Humidity: {city.currentHumidity}%
         </button>
       {}
     </div> 

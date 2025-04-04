@@ -1,6 +1,6 @@
 import DashboardItem from "../components/DashboardItem"
 import {useState, useEffect } from "react"
-import {getLongLat, getWeather} from "../services/api"
+import {getCityWeather} from "../services/api"
 
 function Dashboard() {
     const [searchQuery, setSearchQuery] = useState("");
@@ -38,7 +38,7 @@ function Dashboard() {
         if (!searchQuery.trim() || loading )return;
 
         try {
-                const searchedCities = await getLongLat( searchQuery );
+                const searchedCities = await getCityWeather( searchQuery );
                 setCities( searchedCities );
             } catch (err) { 
                 console.log(err);
@@ -64,7 +64,6 @@ function Dashboard() {
                 />
                 <button type="submit" className="search-btn">Search</button>
             </form>
-            <p>City | | 2 Letter Country code</p>
 
         <div className="favorite-grid">
             {cities.map( (city) => (

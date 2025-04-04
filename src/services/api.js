@@ -12,9 +12,22 @@ export const getLongLat = async ( city ) => {
 }
 
 export const getWeather = async ( lat, lon ) => {
-    const response = await fetch( `${BASE_URL}/data/2.5/forecast?lat=` + lat + 
+    const response = await fetch( `${BASE_URL}/data/2.5/weather?lat=` + lat + 
         `&lon=`+ lon + `&appid=` + API_KEY);
 
     const data = await response.json();
-    return data.results;
+    return data;
+}
+
+export const getCityWeather = async ( city ) => {
+    let cities = await getLongLat( city ); 
+
+    for ( let i = 0; i < cities.length; i++ ){
+        let weather = await getWeather( cities[i].lat, cities[i].lon); 
+
+        cities[i].currentTemperature = weather.main.temp;
+        cities[i].currentHumidity = weather.main.humidity; 
+    }
+    return cities;
+
 }
