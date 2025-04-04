@@ -27,6 +27,7 @@ export const getCityWeather = async ( city ) => {
 
         cities[i].currentTemperature = weather.main.temp;
         cities[i].currentHumidity = weather.main.humidity; 
+        cities[i].id = cities[i].lon + "|" + cities[i].lat;
     }
     return cities;
 
