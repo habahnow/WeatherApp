@@ -8,6 +8,12 @@
 # testing
 /coverage
 
+#swap files
+*.swp
+
+#Maybe a good idea
+.vite/*
+
 # production
 /build
 
