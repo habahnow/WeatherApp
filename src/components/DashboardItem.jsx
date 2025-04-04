@@ -11,20 +11,18 @@ function  DashboardItem( {city} ){
 
     function onFavoriteClicked(e) {
       e.preventDefault();
-      alert("favorite clicked");
+      e.stopPropagation();
       if ( favorite) removeFromFavorites(city.id)
       else addToFavorites(city);
     }
 
   return (
     <div className="dashboard-item">
-        <div className="dashboard-item-btn" onClick={onDashboardClicked}>
+        <button className="dashboard-item-btn" onClick={onDashboardClicked}>
             {city.name}, {city.state}, {city.country} | Temp: {city.currentTemperature} 
               Humidity: {city.currentHumidity}% 
-              {/* <button className="favorite" color={`Favorite ${favorite ? "red" : "blue"} `} onClick={onFavoriteClicked}>&lt;3</button> */}
-              <button className="favorite" style={{color:favorite ? "#FF0000": "#0000FF"}} onClick={onFavoriteClicked}>&lt;3</button>
-        </div>
-      {}
+              <div className="favorite" style={{color:favorite ? "#FF0000": "white"}} onClick={onFavoriteClicked}>♥</div>
+        </button>
     </div> 
   );
 }

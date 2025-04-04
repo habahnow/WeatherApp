@@ -1,10 +1,11 @@
 import DashboardItem from "../components/DashboardItem"
 import {useState, useEffect } from "react"
 import {getCityWeather} from "../services/api"
+import { useCityContext} from "../contexts/CityContext"
 
 function Dashboard() {
     const [searchQuery, setSearchQuery] = useState("");
-    const [cities, setCities] = useState([
+    let [cities, setCities] = useState([
         {id: 1, name: "Los Angeles", country: "USA"},
         {id: 2, name: "Downey", country: "USA"},
         {id: 3, name: "South Gate", country: "USA"},
@@ -13,6 +14,7 @@ function Dashboard() {
     ]);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
+    const { favorites } = useCityContext();
 
 
  /*   useEffect( () => {
@@ -70,6 +72,10 @@ function Dashboard() {
                 ( city.name.toLowerCase().includes( searchQuery.toLowerCase().trim() ) || 
                     city.country.toLowerCase().includes( searchQuery.toLowerCase().trim() ) ) && 
                     <DashboardItem city={city} key={city.id}/> 
+            ))}
+
+            { favorites.map( (city) => (
+                <DashboardItem city={city} key={city.id}/> 
             ))}
 
         </div>
