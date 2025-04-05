@@ -9,7 +9,6 @@ function  DashboardItem( {city} ){
   const favorite = isFavorite(city.id);
 
     function onDashboardClicked() {
-        alert("Dashboard item clicked");
         navigate( `/Detailed/${city.id}`,
            { state: { city } });
     };
@@ -25,7 +24,7 @@ function  DashboardItem( {city} ){
     <div className="dashboard-item">
         <button className="dashboard-item-btn" onClick={onDashboardClicked}>
             {city.name}, {city.state}, {city.country} | Temp: {city.currentTemperature} 
-              Humidity: {city.currentHumidity}% 
+              {" " }Humidity: {city.currentHumidity}% 
               <div className="favorite" style={{color:favorite ? "#FF0000": "white"}} onClick={onFavoriteClicked}>♥</div>
         </button>
     </div> 

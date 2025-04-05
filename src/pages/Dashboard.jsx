@@ -6,11 +6,11 @@ import { useCityContext} from "../contexts/CityContext"
 function Dashboard() {
     const [searchQuery, setSearchQuery] = useState("");
     let [cities, setCities] = useState([
-        {id: 1, name: "Los Angeles", country: "USA"},
-        {id: 2, name: "Downey", country: "USA"},
-        {id: 3, name: "South Gate", country: "USA"},
-        {id: 4, name: "Lynwood", country: "USA"},
-        {id: 5, name: "Los Mochis", country: "Mexico"},
+        // {id: 1, name: "Los Angeles", country: "USA"},
+        // {id: 2, name: "Downey", country: "USA"},
+        // {id: 3, name: "South Gate", country: "USA"},
+        // {id: 4, name: "Lynwood", country: "USA"},
+        // {id: 5, name: "Los Mochis", country: "Mexico"},
     ]);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
@@ -56,6 +56,7 @@ function Dashboard() {
 
     return (
         <div className="dashboard">
+            <h1>Allan Soto's Weather App</h1>
             <form onSubmit={handleSearch} className="search-form">
                 <input 
                 type="text" 
@@ -73,7 +74,7 @@ function Dashboard() {
                     city.country.toLowerCase().includes( searchQuery.toLowerCase().trim() ) ) && 
                     <DashboardItem city={city} key={city.id}/> 
             ))}
-
+            <h3>Your Favorites</h3>
             { favorites.map( (city) => (
                 <DashboardItem city={city} key={city.id}/> 
             ))}
