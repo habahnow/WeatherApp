@@ -22,8 +22,8 @@ function DetailedCity() {
         <p>What does it feel like? {city.feels_like}</p>
         <p>Current Humidity: {city.currentHumidity}%</p>
         <p>Cloud Coverage: {city.clouds}%</p>
-         { city.rain && <p>Rain: {city.rain}</p> }
-         { city.snow && <p>Snow: {city.snow}</p> }
+         { city.rain && <p>Rain: {city.rain} mm/hr</p> }
+         { city.snow && <p>Snow: {city.snow} mm/hr</p> }
 
         
 
