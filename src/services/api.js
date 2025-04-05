@@ -28,6 +28,14 @@ export const getCityWeather = async ( city ) => {
         cities[i].currentTemperature = weather.main.temp;
         cities[i].currentHumidity = weather.main.humidity; 
         cities[i].id = cities[i].lon + "|" + cities[i].lat;
+        cities[i].description = weather.weather[0].description;
+        cities[i].icon = weather.weather[0].icon;
+        cities[i].feels_like = weather.main.feels_like;
+        if (weather.rain) cities[i].rain = weather.rain["1h"];
+        if (weather.snow) cities[i].snow  = weather.snow["1h"];
+        cities[i].clouds = weather.clouds.all;
+
+    
     }
     return cities;
 
