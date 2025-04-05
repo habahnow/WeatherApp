@@ -1,5 +1,6 @@
 import { useCityContext} from "../contexts/CityContext"
 import { useNavigate } from "react-router-dom"
+import "../css/dashboard-item.css"
 
 function  DashboardItem( {city} ){ 
   const { isFavorite, addToFavorites, removeFromFavorites} = useCityContext();
