@@ -1,13 +1,17 @@
 import { useCityContext} from "../contexts/CityContext"
+import { useNavigate } from "react-router-dom"
 
 function  DashboardItem( {city} ){ 
   const { isFavorite, addToFavorites, removeFromFavorites} = useCityContext();
+  const navigate = useNavigate();
 
   const favorite = isFavorite(city.id);
 
     function onDashboardClicked() {
         alert("Dashboard item clicked");
-    }
+        navigate( `/Detailed/${city.id}`,
+           { state: { city } });
+    };
 
     function onFavoriteClicked(e) {
       e.preventDefault();
