@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 function DetailedCity() {
 
     console.log("Detailed City load");
+    console.log("Detailed City load");
     const location = useLocation();
     const { city } = location.state || {};
     const [forecast, setForecast] = useState(null);
@@ -30,7 +31,7 @@ function DetailedCity() {
         }
 
         if (city){
-            fetchForecast();
+            fetchForecast
         }
 
     }, [city]);
