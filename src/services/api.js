@@ -38,5 +38,13 @@ export const getCityWeather = async ( city ) => {
     
     }
     return cities;
+}
 
+export const getForecast = async ( city ) => {
+    const response = await fetch( `${BASE_URL}/data/2.5/forecast?lat=` + city.lat + 
+        `&lon=`+ city.lon + `&appid=` + API_KEY);
+   const forecast = await response.json();
+   console.log("API file, forecast cnt: " +  forecast.cnt);
+   console.log("API response from API file: " + forecast);
+   return forecast;
 }
