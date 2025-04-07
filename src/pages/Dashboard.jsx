@@ -55,7 +55,8 @@ function Dashboard() {
                     city.country.toLowerCase().includes( searchQuery.toLowerCase().trim() ) ) && 
                     <DashboardItem city={city} key={city.id}/> 
             ))}
-            <h3>Your Favorites</h3>
+            {console.log(favorites.length)}
+            { favorites.length > 0 ?  <h3>Your Favorites</h3> : ""}
             { favorites.map( (city) => (
                 <DashboardItem city={city} key={city.id}/> 
             ))}

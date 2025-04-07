@@ -29,7 +29,7 @@ function  DashboardItem( {city} ){
             {city.name}, {city.state}, {city.country} | Temp: {" "}
             {isMetric ? `${kelvinsToCelsius(city.currentTemperature)}°C` : `${kelvinsToFarenheit(city.currentTemperature)}°F`} 
               {" " }Humidity: {city.currentHumidity}% 
-              <div className="favorite"  onClick={onFavoriteClicked}>♥</div>
+              <div className="favorite" style={{color:favorite ? "#FF0000": "white", borderColor:favorite ? "#FF0000": "white"}} onClick={onFavoriteClicked}>♥</div>
         </button>
     </div> 
   );
