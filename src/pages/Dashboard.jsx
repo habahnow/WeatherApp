@@ -2,6 +2,9 @@ import DashboardItem from "../components/DashboardItem"
 import {useState, useEffect } from "react"
 import {getCityWeather} from "../services/api"
 import { useCityContext} from "../contexts/CityContext"
+import { useUnit } from '../contexts/UnitsContext'; 
+import UnitsToggle from "../components/UnitsToggle";
+
 
 function Dashboard() {
     const [searchQuery, setSearchQuery] = useState("");
@@ -15,6 +18,7 @@ function Dashboard() {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
     const { favorites } = useCityContext();
+    const { isMetric, toggleUnits } = useUnit(); 
 
 
  /*   useEffect( () => {
@@ -57,12 +61,12 @@ function Dashboard() {
     return (
         <div className="dashboard">
             <h1>Allan Soto's Weather App</h1>
+            <UnitsToggle /> 
             <form onSubmit={handleSearch} className="search-form">
                 <input 
                 type="text" 
                 placeholder="Search for cities..." 
                 className="search-input"
-                // value={searchQuery} // maybe this is a pointless line
                 onChange={ (e) => setSearchQuery(e.target.value)}
                 />
                 <button type="submit" className="search-btn">Search</button>

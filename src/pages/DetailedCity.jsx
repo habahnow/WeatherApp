@@ -1,16 +1,19 @@
 import BackButton from "../components/BackButton"
 import { useLocation } from "react-router-dom";
+import { useUnit } from '../contexts/UnitsContext'; 
 import {  kelvinsToFarenheit, kelvinsToCelsius, mmToInches } from "../helperFunctions/ValueConversions"
 import { getForecast } from "../services/api"
 import { useEffect, useState } from "react";
 import HourlyForecastList from "../components/HourlyForecastList";
+import UnitsToggle from "../components/HourlyForecastList";
 import "../css/detailed-city.css"
 
 function DetailedCity() {
     const location = useLocation();
+    const { isMetric, toggleUnits } = useUnit();
     const { city } = location.state || {};
     const [forecast, setForecast] = useState(null); 
-    const [loading, setLoading] = useState(true); 
+    const [loading, setLoading] = useState(true);
 
 
     useEffect( () => {
@@ -38,9 +41,11 @@ function DetailedCity() {
         return <div>Loading forecast...</div>; 
     }
 
+
     return (
         <div className="detailed-city">
             <BackButton />
+            <UnitsToggle />
             <h2>Detailed City Information</h2>
             <div className="currentWeather">
                 <h1>{city.name}</h1>

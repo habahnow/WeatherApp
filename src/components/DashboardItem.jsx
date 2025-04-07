@@ -1,9 +1,12 @@
 import { useCityContext} from "../contexts/CityContext"
 import { useNavigate } from "react-router-dom"
+import { useUnit } from '../contexts/UnitsContext'; 
+import { kelvinsToCelsius, kelvinsToFarenheit } from "../helperFunctions/ValueConversions";
 import "../css/dashboard-item.css"
 
 function  DashboardItem( {city} ){ 
   const { isFavorite, addToFavorites, removeFromFavorites} = useCityContext();
+  const { isMetric } = useUnit();
   const navigate = useNavigate();
 
   const favorite = isFavorite(city.id);
@@ -23,7 +26,8 @@ function  DashboardItem( {city} ){
   return (
     <div className="dashboard-item">
         <button className="dashboard-item-btn" onClick={onDashboardClicked}>
-            {city.name}, {city.state}, {city.country} | Temp: {city.currentTemperature} 
+            {city.name}, {city.state}, {city.country} | Temp: {" "}
+            {isMetric ? `${kelvinsToCelsius(city.currentTemperature)} C` : `${kelvinsToFarenheit(city.currentTemperature)} F`} 
               {" " }Humidity: {city.currentHumidity}% 
               <div className="favorite" style={{color:favorite ? "#FF0000": "white"}} onClick={onFavoriteClicked}>♥</div>
         </button>
