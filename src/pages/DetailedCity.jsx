@@ -4,6 +4,7 @@ import {  kelvinsToFarenheit, kelvinsToCelsius, mmToInches } from "../helperFunc
 import { getForecast } from "../services/api"
 import { useEffect, useState } from "react";
 import HourlyForecastList from "../components/HourlyForecastList";
+import "../css/detailed-city.css"
 
 function DetailedCity() {
     const location = useLocation();
