@@ -9,7 +9,7 @@
 
 ## How to Start the Server
 
-1. Install the necessary dependencies:
+1. Install the necessary dependencies, navigate to the weatherApp directory and run:
    ```bash
    npm install
    ```
@@ -18,6 +18,9 @@
     npm run dev
     ```
 3. Click on the link generated in the terminal to view the application (use `Ctrl + Left Click`).
+
+## API Key
+API key that is emailed should be placed in the API_Key variable in src > services > api.js
 
 ## Assumptions
 
