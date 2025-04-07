@@ -51,7 +51,7 @@ function DetailedCity() {
                 {city.rain && <p>Rain: {city.rain} mm/hr</p>}
                 {city.snow && <p>Snow: {city.snow} mm/hr</p>}
             </div>
-            <div className="forecast">
+            <div className="hourly-forecast">
                 {forecast ? (
                     <p>Forecast count: {forecast.cnt}</p> 
                 ) : (
