@@ -8,36 +8,13 @@ import UnitsToggle from "../components/UnitsToggle";
 
 function Dashboard() {
     const [searchQuery, setSearchQuery] = useState("");
-    let [cities, setCities] = useState([
-        // {id: 1, name: "Los Angeles", country: "USA"},
-        // {id: 2, name: "Downey", country: "USA"},
-        // {id: 3, name: "South Gate", country: "USA"},
-        // {id: 4, name: "Lynwood", country: "USA"},
-        // {id: 5, name: "Los Mochis", country: "Mexico"},
-    ]);
+    let [cities, setCities] = useState([]);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
     const { favorites } = useCityContext();
     const { isMetric, toggleUnits } = useUnit(); 
 
 
- /*   useEffect( () => {
-        const searchCities = async () => {
-            try {
-                const searchedCities = await getLongLat( "London" );
-                setCities( searchedCities );
-            } catch (err) { 
-                console.log(err);
-                setError("failed to load items" );
-            }
-            finally {
-                setLoading(false);
-            }
-            
-        }
-        searchCities();
-    }, [])
-*/
     const handleSearch = async (e) => { 
         e.preventDefault()
 

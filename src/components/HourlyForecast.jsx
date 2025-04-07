@@ -1,5 +1,4 @@
 function HourlyForecast ( {forecast} ){
-    console.log(forecast);
     return (
         <div className="hourly-forecast-item">
             <p>Time: {forecast.dt_txt} UTC</p>

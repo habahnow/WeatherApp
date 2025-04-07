@@ -1,12 +1,12 @@
-import BackButton from "../components/BackButton"
+import BackButton from "../components/BackButton";
 import { useLocation } from "react-router-dom";
 import { useUnit } from '../contexts/UnitsContext'; 
 import {  kelvinsToFarenheit, kelvinsToCelsius, mmToInches } from "../helperFunctions/ValueConversions"
-import { getForecast } from "../services/api"
+import { getForecast } from "../services/api";
 import { useEffect, useState } from "react";
 import HourlyForecastList from "../components/HourlyForecastList";
-import UnitsToggle from "../components/HourlyForecastList";
-import "../css/detailed-city.css"
+import UnitsToggle from "../components/UnitsToggle";
+import "../css/detailed-city.css";
 
 function DetailedCity() {
     const location = useLocation();
