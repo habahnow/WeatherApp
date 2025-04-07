@@ -42,7 +42,7 @@ function Dashboard() {
             <form onSubmit={handleSearch} className="search-form">
                 <input 
                 type="text" 
-                placeholder="Search for cities..." 
+                placeholder="Enter the City Name..." 
                 className="search-input"
                 onChange={ (e) => setSearchQuery(e.target.value)}
                 />
@@ -51,11 +51,9 @@ function Dashboard() {
 
         <div className="favorite-grid">
             {cities.map( (city) => (
-                ( city.name.toLowerCase().includes( searchQuery.toLowerCase().trim() ) || 
-                    city.country.toLowerCase().includes( searchQuery.toLowerCase().trim() ) ) && 
-                    <DashboardItem city={city} key={city.id}/> 
+
+                <DashboardItem city={city} key={city.id}/> 
             ))}
-            {console.log(favorites.length)}
             { favorites.length > 0 ?  <h3>Your Favorites</h3> : ""}
             { favorites.map( (city) => (
                 <DashboardItem city={city} key={city.id}/> 
