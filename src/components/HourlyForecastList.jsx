@@ -5,8 +5,9 @@ import HourlyForecast from "./HourlyForecast"
 function HourlyForecastList({ hourlyForecast }) {
     return (
         <div className="hourly-forecast-list">
-            {hourlyForecast.map(( forecastHour ) => (
-                <HourlyForecast key={ forecastHour.dt } hourData={ forecastHour } /> 
+            {hourlyForecast.slice(0,6).map(( forecastHour ) => (
+                // <p>Forecast information: {forecastHour.dt_txt}</p>
+                <HourlyForecast key={ forecastHour.dt } forecast={ forecastHour } /> 
             ))}
         </div>
     );

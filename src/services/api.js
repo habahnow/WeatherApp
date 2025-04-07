@@ -44,5 +44,5 @@ export const getForecast = async ( city ) => {
     const response = await fetch( `${BASE_URL}/data/2.5/forecast?lat=` + city.lat + 
         `&lon=`+ city.lon + `&appid=` + API_KEY);
    const forecast = await response.json();
-   return forecast;
+   return forecast.list;
 }

@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import {  kelvinsToFarenheit, kelvinsToCelsius, mmToInches } from "../helperFunctions/ValueConversions"
 import { getForecast } from "../services/api"
 import { useEffect, useState } from "react";
+import HourlyForecastList from "../components/HourlyForecastList";
 
 function DetailedCity() {
     const location = useLocation();
@@ -52,11 +53,7 @@ function DetailedCity() {
                 {city.snow && <p>Snow: {city.snow} mm/hr</p>}
             </div>
             <div className="hourly-forecast">
-                {forecast ? (
-                    <p>Forecast count: {forecast.cnt}</p> 
-                ) : (
-                    <p>No forecast data available.</p>
-                )}
+                <HourlyForecastList hourlyForecast={ forecast }/> 
             </div>
         </div>
     );
