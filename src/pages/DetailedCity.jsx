@@ -51,8 +51,8 @@ function DetailedCity() {
                 <h1>{city.name}</h1>
                 <p>{city.state}, {city.country}</p>
                 <p>What's notable about the weather now? {city.description}</p>
-                <p>Current temperature: {true ? `${kelvinsToCelsius(city.currentTemperature)} °C` : `${kelvinsToFarenheit(city.currentTemperature)} °F`}</p>
-                <p>What does it feel like? {city.feels_like}</p>
+                <p>Current temperature:  {isMetric ? `${kelvinsToCelsius(city.currentTemperature)}°C` : `${kelvinsToFarenheit(city.currentTemperature)}°F`} </p>
+                <p>What does it feel like? {isMetric ? `${kelvinsToCelsius(city.feels_like)} °C` : `${kelvinsToFarenheit(city.feels_like)} °F`}</p>
                 <p>Current Humidity: {city.currentHumidity}%</p>
                 <p>Cloud Coverage: {city.clouds}%</p>
                 {city.rain && <p>Rain: {city.rain} mm/hr</p>}
